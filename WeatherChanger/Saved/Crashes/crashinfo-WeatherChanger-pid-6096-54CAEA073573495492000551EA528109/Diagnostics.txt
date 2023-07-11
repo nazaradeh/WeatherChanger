@@ -1,0 +1,38 @@
+Generating report for minidump
+
+Application version 5.2.1.0
+ ... built from changelist 26001984
+
+OS version Linux 5.14.21-150500.53-default (network name: localhost.localdomain)
+Running 8 x86_64 processors (16 logical cores)
+Exception was "SIGSEGV: invalid attempt to write memory at address 0x0000000000000003"
+
+<SOURCE START>
+<SOURCE END>
+
+<CALLSTACK START>
+libUnrealEditor-VulkanRHI.so!VulkanRHI::VerifyVulkanResult(VkResult, char const*, char const*, unsigned int) [/mnt/horde/++UE5/Sync/Engine/Source/./Runtime/VulkanRHI/Private/VulkanUtil.cpp:1016]
+libUnrealEditor-VulkanRHI.so!VulkanRHI::FFenceManager::WaitForFence(VulkanRHI::FFence*, unsigned long long) [/mnt/horde/++UE5/Sync/Engine/Source/./Runtime/VulkanRHI/Private/VulkanMemory.cpp:4584]
+libUnrealEditor-VulkanRHI.so!FVulkanCommandBufferManager::WaitForCmdBuffer(FVulkanCmdBuffer*, float) [/mnt/horde/++UE5/Sync/Engine/Source/./Runtime/VulkanRHI/Private/VulkanCommandBuffer.cpp:502]
+libUnrealEditor-VulkanRHI.so!FVulkanDynamicRHI::RHIGetRenderQueryResult(FRHIRenderQuery*, unsigned long long&, bool, unsigned int) [/mnt/horde/++UE5/Sync/Engine/Source/./Runtime/VulkanRHI/Private/VulkanQuery.cpp:534]
+libUnrealEditor-RenderCore.so!FRealtimeGPUProfilerEvent::GatherQueryResults(FRHICommandListImmediate&) [/mnt/horde/++UE5/Sync/Engine/Source/./Runtime/RenderCore/Private/ProfilingDebugging/RealtimeGPUProfiler.cpp:212]
+libUnrealEditor-RenderCore.so!FRealtimeGPUProfilerFrame::UpdateStats(FRHICommandListImmediate&, FRealtimeGPUProfilerHistoryByDescription&) [/mnt/horde/++UE5/Sync/Engine/Source/./Runtime/RenderCore/Private/ProfilingDebugging/RealtimeGPUProfiler.cpp:540]
+libUnrealEditor-RenderCore.so!FRealtimeGPUProfiler::EndFrame(FRHICommandListImmediate&) [/mnt/horde/++UE5/Sync/Engine/Source/./Runtime/RenderCore/Private/ProfilingDebugging/RealtimeGPUProfiler.cpp:1043]
+UnrealEditor-Linux-DebugGame!FEngineLoop::Tick()::$_37::operator()(FRHICommandListImmediate&) const [/mnt/horde/++UE5/Sync/Engine/Source/./Runtime/Launch/Private/LaunchEngineLoop.cpp:6084]
+UnrealEditor-Linux-DebugGame!TEnqueueUniqueRenderCommandType<FEngineLoop::Tick()::EndFrameName, FEngineLoop::Tick()::$_37>::DoTask(ENamedThreads::Type, TRefCountPtr<FGraphEvent> const&) [/mnt/horde/++UE5/Sync/Engine/Source/Runtime/RenderCore/Public/RenderingThread.h:209]
+UnrealEditor-Linux-DebugGame!TGraphTask<TEnqueueUniqueRenderCommandType<FEngineLoop::Tick()::EndFrameName, FEngineLoop::Tick()::$_37> >::ExecuteTask(TArray<FBaseGraphTask*, TSizedDefaultAllocator<32> >&, ENamedThreads::Type, bool) [/mnt/horde/++UE5/Sync/Engine/Source/Runtime/Core/Public/Async/TaskGraphInterfaces.h:1310]
+libUnrealEditor-Core.so!FNamedTaskThread::ProcessTasksNamedThread(int, bool) [/mnt/horde/++UE5/Sync/Engine/Source/./Runtime/Core/Private/Async/TaskGraph.cpp:758]
+libUnrealEditor-Core.so!FNamedTaskThread::ProcessTasksUntilQuit(int) [/mnt/horde/++UE5/Sync/Engine/Source/./Runtime/Core/Private/Async/TaskGraph.cpp:648]
+libUnrealEditor-Core.so!FTaskGraphCompatibilityImplementation::ProcessThreadUntilRequestReturn(ENamedThreads::Type) [/mnt/horde/++UE5/Sync/Engine/Source/./Runtime/Core/Private/Async/TaskGraph.cpp:2069]
+libUnrealEditor-RenderCore.so!RenderingThreadMain(FEvent*) [/mnt/horde/++UE5/Sync/Engine/Source/./Runtime/RenderCore/Private/RenderingThread.cpp:416]
+libUnrealEditor-RenderCore.so!FRenderingThread::Run() [/mnt/horde/++UE5/Sync/Engine/Source/./Runtime/RenderCore/Private/RenderingThread.cpp:567]
+libUnrealEditor-Core.so!FRunnableThreadPThread::Run() [/mnt/horde/++UE5/Sync/Engine/Source/./Runtime/Core/Private/HAL/PThreadRunnableThread.cpp:25]
+libUnrealEditor-Core.so!FRunnableThreadPThread::_ThreadProc(void*) [/mnt/horde/++UE5/Sync/Engine/Source/Runtime/Core/Private/HAL/PThreadRunnableThread.h:187]
+libpthread.so.0!UnknownFunction(0xa6e9)
+libc.so.6!clone(+0x3e)
+
+<CALLSTACK END>
+
+0 loaded modules
+
+Report end!
