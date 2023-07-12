@@ -1,0 +1,55 @@
+Generating report for minidump
+
+Application version 5.2.1.0
+ ... built from changelist 26001984
+
+OS version Linux 5.14.21-150500.53-default (network name: localhost.localdomain)
+Running 8 x86_64 processors (16 logical cores)
+Exception was "FShaderCompilingManager::BlockOnShaderMapCompletion"
+
+<SOURCE START>
+<SOURCE END>
+
+<CALLSTACK START>
+libUnrealEditor-Core.so!FUnixPlatformStackWalk::CaptureStackBackTrace(unsigned long long*, unsigned int, void*) [/mnt/horde/++UE5/Sync/Engine/Source/./Runtime/Core/Private/Unix/UnixPlatformStackWalk.cpp:765]
+libUnrealEditor-Core.so!ThreadStackWalker(int, siginfo_t*, void*) [/mnt/horde/++UE5/Sync/Engine/Source/./Runtime/Core/Private/Unix/UnixPlatformCrashContext.cpp:1032]
+libpthread.so.0!UnknownFunction(0x1690f)
+libc.so.6!clock_nanosleep(+0x82)
+libc.so.6!nanosleep(+0x14)
+libc.so.6!usleep(+0x45)
+libUnrealEditor-Core.so!FGenericPlatformProcess::Sleep(float) [/mnt/horde/++UE5/Sync/Engine/Source/./Runtime/Core/Private/GenericPlatform/GenericPlatformProcess.cpp:371]
+libUnrealEditor-Engine.so!FShaderCompilingManager::BlockOnShaderMapCompletion(TArray<int, TSizedDefaultAllocator<32> > const&, TMap<int, FShaderMapCompileResults, FDefaultSetAllocator, TDefaultMapHashableKeyFuncs<int, FShaderMapCompileResults, false> >&) [/mnt/horde/++UE5/Sync/Engine/Source/./Runtime/Engine/Private/ShaderCompiler/ShaderCompiler.cpp:4477]
+libUnrealEditor-Engine.so!FShaderCompilingManager::FinishCompilation(char16_t const*, TArray<int, TSizedDefaultAllocator<32> > const&) [/mnt/horde/++UE5/Sync/Engine/Source/./Runtime/Engine/Private/ShaderCompiler/ShaderCompiler.cpp:5325]
+libUnrealEditor-Engine.so!FMaterialShaderMap::Compile(FMaterial*, FMaterialShaderMapId const&, TRefCountPtr<FSharedShaderCompilerEnvironment> const&, FMaterialCompilationOutput const&, EShaderPlatform, EMaterialShaderPrecompileMode) [/mnt/horde/++UE5/Sync/Engine/Source/./Runtime/Engine/Private/Materials/MaterialShader.cpp:2215]
+libUnrealEditor-Engine.so!FMaterial::BeginCompileShaderMap(FMaterialShaderMapId const&, FStaticParameterSet const&, EShaderPlatform, EMaterialShaderPrecompileMode, ITargetPlatform const*) [/mnt/horde/++UE5/Sync/Engine/Source/./Runtime/Engine/Private/Materials/MaterialShared.cpp:3102]
+libUnrealEditor-Engine.so!UE::Core::Private::Function::TFunctionRefCaller<FMaterial::BeginCacheShaders(FMaterialShaderMapId const&, EShaderPlatform, EMaterialShaderPrecompileMode, ITargetPlatform const*, TUniqueFunction<void (bool)>&&)::$_82, bool ()>::Call(void*) [/mnt/horde/++UE5/Sync/Engine/Source/Runtime/Core/Public/Templates/Function.h:465]
+libUnrealEditor-Engine.so!FMaterial::FinishCacheShaders() const [/mnt/horde/++UE5/Sync/Engine/Source/./Runtime/Engine/Private/Materials/MaterialShared.cpp:2891]
+libUnrealEditor-Engine.so!FMaterial::CacheShaders(EShaderPlatform, EMaterialShaderPrecompileMode, ITargetPlatform const*) [/mnt/horde/++UE5/Sync/Engine/Source/./Runtime/Engine/Private/Materials/MaterialShared.cpp:2541]
+libUnrealEditor-Engine.so!UMaterialInstance::CacheShadersForResources(EShaderPlatform, TArray<FMaterialResource*, TSizedDefaultAllocator<32> > const&, EMaterialShaderPrecompileMode, ITargetPlatform const*) [/mnt/horde/++UE5/Sync/Engine/Source/./Runtime/Engine/Private/Materials/MaterialInstance.cpp:2354]
+libUnrealEditor-Engine.so!UMaterialInstance::CacheResourceShadersForRendering(EMaterialShaderPrecompileMode, TArray<FMaterialResource*, TSizedDefaultAllocator<32> >&) [/mnt/horde/++UE5/Sync/Engine/Source/./Runtime/Engine/Private/Materials/MaterialInstance.cpp:2244]
+libUnrealEditor-Engine.so!UMaterialInstance::UpdateStaticPermutation(FStaticParameterSet const&, FMaterialInstanceBasePropertyOverrides&, bool, FMaterialUpdateContext*) [/mnt/horde/++UE5/Sync/Engine/Source/./Runtime/Engine/Private/Materials/MaterialInstance.cpp:3752]
+libUnrealEditor-Landscape.so!ULandscapeComponent::GetCombinationMaterial(FMaterialUpdateContext*, TArray<FWeightmapLayerAllocationInfo, TSizedDefaultAllocator<32> > const&, signed char, bool) const [/mnt/horde/++UE5/Sync/Engine/Source/./Runtime/Landscape/Private/LandscapeEdit.cpp:396]
+libUnrealEditor-Landscape.so!ULandscapeComponent::UpdateMaterialInstances_Internal(FMaterialUpdateContext&) [/mnt/horde/++UE5/Sync/Engine/Source/./Runtime/Landscape/Private/LandscapeEdit.cpp:454]
+libUnrealEditor-Landscape.so!ULandscapeComponent::UpdateMaterialInstances(FMaterialUpdateContext&, TArray<FComponentRecreateRenderStateContext, TSizedDefaultAllocator<32> >&) [/mnt/horde/++UE5/Sync/Engine/Source/./Runtime/Landscape/Private/LandscapeEdit.cpp:557]
+libUnrealEditor-Landscape.so!ALandscapeProxy::UpdateAllComponentMaterialInstances(FMaterialUpdateContext&, TArray<FComponentRecreateRenderStateContext, TSizedDefaultAllocator<32> >&, bool) [/mnt/horde/++UE5/Sync/Engine/Source/./Runtime/Landscape/Private/LandscapeEdit.cpp:569]
+libUnrealEditor-Landscape.so!ALandscapeProxy::Import(FGuid const&, int, int, int, int, int, int, TMap<FGuid, TArray<unsigned short, TSizedDefaultAllocator<32> >, FDefaultSetAllocator, TDefaultMapHashableKeyFuncs<FGuid, TArray<unsigned short, TSizedDefaultAllocator<32> >, false> > const&, char16_t const*, TMap<FGuid, TArray<FLandscapeImportLayerInfo, TSizedDefaultAllocator<32> >, FDefaultSetAllocator, TDefaultMapHashableKeyFuncs<FGuid, TArray<FLandscapeImportLayerInfo, TSizedDefaultAllocator<32> >, false> > const&, ELandscapeImportAlphamapType, TArray<FLandscapeLayer, TSizedDefaultAllocator<32> > const*) [/mnt/horde/++UE5/Sync/Engine/Source/./Runtime/Landscape/Private/LandscapeEdit.cpp:3346]
+libUnrealEditor-LandscapeEditor.so!FLandscapeEditorDetailCustomization_NewLandscape::OnCreateButtonClicked() [/mnt/horde/++UE5/Sync/Engine/Source/./Editor/LandscapeEditor/Private/LandscapeEditorDetailCustomization_NewLandscape.cpp:939]
+libUnrealEditor-LandscapeEditor.so!TBaseSPMethodDelegateInstance<false, FLandscapeEditorDetailCustomization_NewLandscape, (ESPMode)1, FReply (), FDefaultDelegateUserPolicy>::Execute() const [/mnt/horde/++UE5/Sync/Engine/Source/Runtime/Core/Public/Delegates/DelegateInstancesImpl.h:275]
+libUnrealEditor-Slate.so!SButton::ExecuteOnClick() [/mnt/horde/++UE5/Sync/Engine/Source/./Runtime/Slate/Private/Widgets/Input/SButton.cpp:465]
+libUnrealEditor-Slate.so!SButton::OnMouseButtonUp(FGeometry const&, FPointerEvent const&) [/mnt/horde/++UE5/Sync/Engine/Source/./Runtime/Slate/Private/Widgets/Input/SButton.cpp:390]
+libUnrealEditor-Slate.so!FSlateApplication::RoutePointerUpEvent(FWidgetPath const&, FPointerEvent const&) [/mnt/horde/++UE5/Sync/Engine/Source/./Runtime/Slate/Private/Framework/Application/SlateApplication.cpp:5116]
+libUnrealEditor-Slate.so!FSlateApplication::ProcessMouseButtonUpEvent(FPointerEvent const&) [/mnt/horde/++UE5/Sync/Engine/Source/./Runtime/Slate/Private/Framework/Application/SlateApplication.cpp:5684]
+libUnrealEditor-Slate.so!FSlateApplication::OnMouseUp(EMouseButtons::Type, UE::Math::TVector2<double>) [/mnt/horde/++UE5/Sync/Engine/Source/./Runtime/Slate/Private/Framework/Application/SlateApplication.cpp:5649]
+libUnrealEditor-ApplicationCore.so!FLinuxApplication::ProcessDeferredMessage(SDL_Event) [/mnt/horde/++UE5/Sync/Engine/Source/./Runtime/ApplicationCore/Private/Linux/LinuxApplication.cpp:414]
+libUnrealEditor-ApplicationCore.so!FLinuxPlatformApplicationMisc::PumpMessages(bool) [/mnt/horde/++UE5/Sync/Engine/Source/./Runtime/ApplicationCore/Private/Linux/LinuxPlatformApplicationMisc.cpp:436]
+UnrealEditor-Linux-DebugGame!FEngineLoop::Tick() [/mnt/horde/++UE5/Sync/Engine/Source/./Runtime/Launch/Private/LaunchEngineLoop.cpp:5730]
+UnrealEditor-Linux-DebugGame!GuardedMain(char16_t const*) [/mnt/horde/++UE5/Sync/Engine/Source/./Runtime/Launch/Private/Launch.cpp:190]
+libUnrealEditor-UnixCommonStartup.so!CommonUnixMain(int, char**, int (*)(char16_t const*), void (*)()) [/mnt/horde/++UE5/Sync/Engine/Source/Runtime/Unix/UnixCommonStartup/Private/UnixCommonStartup.cpp:269]
+libc.so.6!__libc_start_main(+0xee)
+UnrealEditor-Linux-DebugGame!_start()
+
+<CALLSTACK END>
+
+0 loaded modules
+
+Report end!
